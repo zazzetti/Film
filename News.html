@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<head>
+  <title>News</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+  <link rel="stylesheet" href="stile.css" type="text/css"/>
+
+
+
+
+  <script>
+    let keyName;
+    sub=false
+
+    function change(){
+
+            let input= document.querySelector("input[type='text']")
+            let button= document.querySelector("button")
+            button.disabled=""
+            if(input.value==""){
+            button.disabled="disabled";
+            
+            }
+      }
+
+      function remove(){
+        alert("Rimosso: " + keyName)
+        let storageName= "localStorage"
+        let storage=window[storageName];
+        storage.removeItem(keyName);
+        document.getElementById("Name").disabled=false;
+        document.getElementById("submit").innerHTML= "Subscribe";
+        sub=false;
+        button.onclick=save();
+      }
+
+
+      
+  function change2(){
+
+  let button= document.querySelector("button")
+  if(sub==false){
+  button.onclick=save();}
+  else button.onclick=remove();
+
+  }
+
+
+  function save(){
+  let storageName= "localStorage"
+  let storage=window[storageName];
+  let key=document.getElementById("Name").value;
+  let value=document.getElementById("Name").value;
+  if(storage.getItem(key)==null){
+  storage.setItem(key,value)
+  alert("Inserito: " + key)
+  }else{ alert("Già iscritto")}
+  sub=true;
+  keyName=key;
+  document.getElementById("Name").disabled=true;
+  document.getElementById("submit").innerHTML= "Unsubscribe";
+  button.onclick=remove();
+  }
+
+
+
+
+
+</script>
+
+
+
+
+
+</head>
+
+
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Pulp Fiction</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li id="home"><a href="Film.html">Home</a></li>
+      <li><a href="Scheda_tecnica.html">Scheda Tecnica</a></li>
+      <li><a href="Attori.html">Attori</a></li>
+      <li class="active"><a href="#">News</a></li>
+
+    </ul>
+
+
+  </div>
+</nav>
+  
+<div class="container" style="text-align:center">
+  <h3>News</h3>
+
+</div>
+
+
+
+
+<form  onsubmit="return false">
+  <header><h1>Sign in</h1></header>
+  <div>
+      <label>Name</label>
+      <input type="text"  onchange="change()" id="Name"/>
+      <button  id="submit" onclick="change2()" disabled>Subscribe</button>
+
+  </div>
+  
+</form>
+
+
+
+
+
+<footer>
+  <p >
+      Elena Zazzetti
+
+  </p>
+</footer>
+</body>

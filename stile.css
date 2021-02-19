@@ -1,0 +1,47 @@
+li:hover {
+        
+    background-color: grey;
+  }
+body{
+  background-color: orange;
+  font-family:Georgia, 'Times New Roman', Times, serif;
+}
+  h3{
+      color: yellow;
+      background-color: red;
+    font-family:fantasy;
+      font-size: large; 
+      padding: 30px;
+       }
+     
+    td:first-child{
+        font-weight: bold;
+        /* background-color: blanchedalmond; */
+    }
+
+    section{
+      margin-left: 10%;
+      margin-right: 10%;
+    }
+
+    table a{
+      color: black;
+      font-weight: bold;
+      text-decoration: underline;
+    }
+    table a:hover{
+      color: grey;
+      font-weight: bold;
+      text-decoration: underline;
+    }
+
+    li[id="home"]{
+      border: 1px solid white;
+      border-radius: 50px;
+    }
+
+    footer {
+     text-align: right;
+     margin-right: 10%;
+   }
+    
